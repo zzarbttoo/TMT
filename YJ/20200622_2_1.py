@@ -49,7 +49,7 @@ print(solution(citations7))
 
 
 
-#리스?�에???�하???�소�?출력 : https://coding-groot.tistory.com/21
+#리스트에서 원하는 거만 추출 https://coding-groot.tistory.com/21
 
 # 다른 사람의 풀이(깔꼬롬)
 def solution(citations):

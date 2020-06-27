@@ -77,39 +77,27 @@ def solution (bridge_length,  weight, truck_weights):
 
     while(True):
  
-        #종료 조건
-
-        if(len(truck_wait) == 0 and len(bridge_queue) == 0):
-            break
-
-        
         #pop 조건
         #파이썬에서는 권장되지 않는 방식이나, 병행 오류가 나서 바꿈
-        for i in range(0, len(bridge_queue)):
-            if(truck_hash[i][1] == 0):
-                weight_sum -= truck_hash[bridge_queue.popleft()][0]
-            else:
-                truck_hash[i][1] -=1
+        if(len(bridge_queue) != 0 ):
+            if(truck_hash[bridge_queue[0]][1] == 0):
+                    weight_sum -= truck_hash[bridge_queue.popleft()][0]
+            for i in range(0, len(bridge_queue)):
+                    truck_hash[bridge_queue[i]][1] -=1
 
         #push 조건
-
-        if(weight_sum + truck_hash[truck_wait[0]][0] <= weight and len(truck_weights)!= 0):
+        if(len(truck_wait)!= 0 and weight_sum + truck_hash[truck_wait[0]][0] <= weight ):
             weight_sum += truck_hash[truck_wait[0]][0] 
             bridge_queue.append(truck_wait.popleft())
 
+        #종료 조건
+        if(len(truck_wait) == 0 and len(bridge_queue) == 0):
+            break
     
         time_sum += 1
     return time_sum
 
     
-    
-
-
-
-
-           
-
-
 
 print(solution(1, 2 ,[1,1,1])) #4
 print(solution(1, 1, [1,1,1])) #4
