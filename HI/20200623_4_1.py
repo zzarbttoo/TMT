@@ -6,8 +6,8 @@ numb = [3, 30, 34, 5, 9]
 def solution(numbers):
     answer=''
     numb_list = list(map(str, numbers))
-    numb_list = list(map(int,map(''.join, itertools.permutations(numb_list)))) #순열 함수
-    answer = str(max(numb_list)) #순열 조합 중 가장 큰 수
+    numb_list = list(map(int,map(''.join, itertools.permutations(numb_list))))   #순열 함수
+    answer = str(max(numb_list))   #순열 조합 중 가장 큰 수
     return answer
     
 print(solution(numb))
